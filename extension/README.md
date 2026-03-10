@@ -17,20 +17,11 @@ The extension will appear in your toolbar. It only activates on Google Calendar.
 2. Switch to **Week** view (required for the extension to find events).
 3. Click the **Calendar Sonification** extension icon in the toolbar. The badge will show **ON** and a control panel will appear in the top-right of the page.
 4. Click **Scan week** to read the visible week’s events from the page (do this after changing the week or if the panel says to try again).
-5. Click **Play** to start playback. A blue playhead will move across the week; each event triggers a sound when the playhead reaches it.
-6. Use **Speed** (1–50x) to make the playhead move faster or slower. **Stop** resets to the start of the week; **Play** again continues from the beginning.
-7. Click the extension icon again to turn sonification **OFF**. The panel and playhead are removed and playback stops.
+5. Click **Play** to start. 
 
 ## Color → sound mapping
 
-Events are mapped to instruments by their calendar color (nearest match to the prototype palette):
-
-- **Blue (main)** → synth
-- **Light gray (todo)** → kick
-- **Yellow/cream (goal)** → gong
-- **Light blue (work)** → ambient
-- **Dark/busy** → snare
-
+Events are mapped to instruments by their calendar color, in the future I want to make it more about event title, details, participants, location, etc.
 Pitch varies by event title so the same color doesn’t always sound identical.
 
 ## Troubleshooting
@@ -46,6 +37,7 @@ Pitch varies by event title so the same color doesn’t always sound identical.
 
 - **Panel or playhead in the way**  
   Turn the extension off with the icon when you’re done. You can move the calendar view; the playhead stays aligned with the grid.
+
 
 ## Development
 
