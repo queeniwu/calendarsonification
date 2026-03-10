@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Sonification</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="controls">
+        <button id="playBtn" class="play-btn">Play</button>
+        <button id="stopBtn" class="stop-btn">Stop</button>
+        <label>Speed: <input type="range" id="speedSlider" min="1" max="50" value="20"><span id="speedVal">20x</span></label>
+        <span id="currentTime">12:00 AM</span>
+    </div>
+
+    <div class="calendar-wrapper">
+        <div class="week-header">
+            <div class="gutter"></div>
+            <div class="day-col"><span class="day-name">SUN</span><span class="day-num">1</span></div>
+            <div class="day-col"><span class="day-name">MON</span><span class="day-num">2</span></div>
+            <div class="day-col"><span class="day-name">TUE</span><span class="day-num">3</span></div>
+            <div class="day-col"><span class="day-name">WED</span><span class="day-num">4</span></div>
+            <div class="day-col"><span class="day-name">THU</span><span class="day-num">5</span></div>
+            <div class="day-col"><span class="day-name">FRI</span><span class="day-num">6</span></div>
+            <div class="day-col"><span class="day-name">SAT</span><span class="day-num">7</span></div>
+        </div>
+
+        <div class="calendar-grid">
+            <div class="time-gutter" id="timeGutter"></div>
+            <div class="days-container" id="daysContainer"></div>
+        </div>
+    </div>
+
+    <div id="playhead" class="playhead"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

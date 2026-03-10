@@ -1,0 +1,88 @@
+/* Calendar Sonification – injected panel and playhead */
+
+.cs-panel {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  min-width: 260px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  color: #3c4043;
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-status {
+  color: #5f6368;
+  font-size: 13px;
+}
+
+.cs-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cs-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.cs-play-btn {
+  background: #1a73e8;
+  color: #fff;
+}
+
+.cs-play-btn:hover {
+  background: #1765cc;
+}
+
+.cs-stop-btn,
+.cs-scan-btn {
+  background: #fff;
+  color: #5f6368;
+  border: 1px solid #dadce0;
+}
+
+.cs-stop-btn:hover,
+.cs-scan-btn:hover {
+  background: #f8f9fa;
+}
+
+.cs-speed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5f6368;
+  font-size: 13px;
+}
+
+.cs-speed-slider {
+  width: 100px;
+}
+
+.cs-current-time {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5f6368;
+}
+
+.cs-playhead {
+  position: fixed;
+  background: #ea4335;
+  pointer-events: none;
+  z-index: 2147483645;
+  border-radius: 0 0 2px 2px;
+}

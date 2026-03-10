@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Calendar Sonification",
+  "version": "1.0.0",
+  "description": "Play your Google Calendar week like a song.",
+  "permissions": ["scripting"],
+  "host_permissions": ["https://calendar.google.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Toggle Calendar Sonification"
+  }
+}
