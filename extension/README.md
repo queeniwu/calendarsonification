@@ -1,6 +1,10 @@
 # Calendar Sonification Chrome Extension
 
-Play your Google Calendar week like a song.
+Over the past few months, I’ve felt pulled in every direction with work, school, life, health... I'm constantly juggling overlapping deadlines and moving from one task to the next without much rest or pause. It might be as dramatic to say that it has been the height of blurred priorities and fractured attention. I want to be more present.
+
+I started thinking about scattered texture in my days, making it feel rushed and sometimes overwhelming. And as someone who doesn't naturally filter auditory information well, I thought it could be a fitting lens. By translating my calendar into sound, I wanted to externalize the mix of chaos and structure in the way time passes: both dizzying and hyperstructured.
+
+What does it feel like to hear a looming deadling among busy tasks?
 
 ## How to install (unpacked)
 
