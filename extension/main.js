@@ -118,6 +118,38 @@
     };
   }
 
+  function getNowIndicatorPosition(layout) {
+    if (!layout || !layout.timedRegion) return null;
+    var regionRect = layout.timedRegion.getBoundingClientRect();
+    var scrollTop = layout.timedRegion.scrollTop || 0;
+    var dayAreaLeft = regionRect.left + (layout.timeGutterWidth || 60);
+    var columnWidth = layout.columnWidth;
+    var pixelsPerHour = layout.pixelsPerHour;
+    var nowEl =
+      layout.timedRegion.querySelector(".rGFpCd") ||
+      layout.main.querySelector(".rGFpCd") ||
+      document.querySelector(".rGFpCd");
+    if (!nowEl) {
+      var all = document.querySelectorAll("[class*='rGFpCd']");
+      for (var i = 0; i < all.length; i++) {
+        if (layout.timedRegion.contains(all[i])) {
+          nowEl = all[i];
+          break;
+        }
+      }
+    }
+    if (!nowEl) return null;
+    var rect = nowEl.getBoundingClientRect();
+    if (rect.bottom < regionRect.top || rect.top > regionRect.bottom) return null;
+    var topRel = rect.top - regionRect.top + scrollTop;
+    var leftRel = rect.left - dayAreaLeft;
+    var min = (topRel / pixelsPerHour) * 60;
+    var day = Math.floor(leftRel / columnWidth);
+    day = Math.max(0, Math.min(6, day));
+    min = Math.max(0, Math.min(1440, min));
+    return { currentMin: min, currentDay: day };
+  }
+
   function getEventButtons() {
     var main = document.querySelector("div[role='main']");
     if (!main) return [];
@@ -334,7 +366,7 @@
 
   function animate() {
     if (!playing) return;
-    currentMin += speed / 10;
+    currentMin += speed / 3600;
     if (currentMin >= 1440) {
       Object.keys(activeAmbient).forEach(function (key) {
         if (key.startsWith(currentDay + "-")) {
@@ -438,7 +470,7 @@
     speedSlider.type = "range";
     speedSlider.className = "cs-speed-slider";
     speedSlider.min = "1";
-    speedSlider.max = "50";
+    speedSlider.max = "10000";
     speedSlider.value = "20";
     var speedVal = document.createElement("span");
     speedVal.className = "cs-speed-val";
@@ -470,6 +502,11 @@
         return;
       }
       if (!playing) {
+        var nowPos = getNowIndicatorPosition(layout);
+        if (nowPos) {
+          currentMin = nowPos.currentMin;
+          currentDay = nowPos.currentDay;
+        }
         Tone.start();
         lastToneTime = 0;
         playing = true;
